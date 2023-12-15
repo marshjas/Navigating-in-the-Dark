@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector3 currentPosition = transform.position;
-        transform.position += new Vector3(moveSpeed * Input.GetAxis("Horizontal"), 0, 0);
-        transform.position += new Vector3(0, moveSpeed * Input.GetAxis("Vertical"), 0);
+        transform.position += (Vector3) (moveSpeed * new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized);
     }
 }
